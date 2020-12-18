@@ -1,25 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css"
+import { Layout, Menu, Typography, Row, Col } from 'antd';
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { Beranda, Cv, Portfolio, Sertifikat } from "./Pages"
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Beranda} />
+        <Route path="/portfolio" component={Portfolio} />
+        <Route path="/sertifikat" component={Sertifikat} />
+        <Route path="/cv" component={Cv} />
+        <Redirect to="/" />
+      </Switch>
+    </Router>
   );
 }
 
